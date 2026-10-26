@@ -33,6 +33,12 @@ h2 {
   font-weight: 700; 
 }
 
+a, a:hover, a:focus, a:visited {
+    text-decoration: none !important;
+    box-shadow: none !important;
+    border-bottom: none !important;
+}
+
 .avatar { 
   width: 36px; 
   height: 36px; 

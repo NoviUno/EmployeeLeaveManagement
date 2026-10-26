@@ -73,7 +73,9 @@
   gap: .7rem;
   padding: .75rem .8rem; 
   color: #5b6478; 
-  text-decoration: none; 
+  text-decoration: none;
+  border-bottom: none;
+  box-shadow: none; 
   border-radius: 9px;
   font-weight: 500; 
   margin-bottom: .15rem; 
