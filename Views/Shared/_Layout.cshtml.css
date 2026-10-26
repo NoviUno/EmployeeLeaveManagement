@@ -1,48 +1,140 @@
-﻿/* Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
-for details on configuring this project to bundle and minify static web assets. */
-
-a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
+﻿/* Styles used by the shared application layout (header, sidebar, and page shell). */
+.topbar { 
+  height: 68px; 
+  position: sticky; 
+  top: 0; 
+  z-index: 1000; 
+  background: rgba(255,255,255,.96); 
+  border-bottom: 1px solid var(--tf-border); 
+  box-shadow: 0 2px 10px rgba(20,30,60,.03); 
 }
 
-a {
-  color: #0077cc;
+.brand-name { 
+  color: var(--tf-primary); 
+  font-size: 1.35rem; 
+  font-weight: 700; 
+  letter-spacing: -.04em; 
 }
 
-.btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+.brand-name:hover { 
+  color: var(--tf-primary-dark); 
 }
 
-.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+.team-label { 
+  color: #344054; 
+  font-size: .85rem; 
 }
 
-.border-top {
-  border-top: 1px solid #e5e5e5;
-}
-.border-bottom {
-  border-bottom: 1px solid #e5e5e5;
-}
-
-.box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+.profile-chip { 
+  display: flex; 
+  align-items: center; 
+  gap: .6rem; 
+  font-size: .82rem; 
 }
 
-button.accept-policy {
-  font-size: 1rem;
-  line-height: inherit;
+.profile-chip strong, .profile-chip small { 
+  display: block; 
 }
 
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px;
+.profile-chip small { 
+  color: var(--tf-muted); 
+}
+
+.app-shell { 
+  min-height: calc(100vh - 68px); 
+}
+
+.sidebar { 
+  width: 248px; 
+  position: fixed; 
+  top: 68px; 
+  bottom: 0; 
+  left: 0; 
+  z-index: 900; 
+  display: flex; 
+  flex-direction: column; 
+  padding: 1.35rem 1rem; 
+  background: var(--tf-surface); 
+  border-right: 1px solid var(--tf-border); 
+}
+
+.sidebar-heading { 
+  color: #81869a; 
+  font-size: .68rem; 
+  font-weight: 700; 
+  letter-spacing: .12em; 
+  text-transform: uppercase; 
+  padding: .3rem .65rem .9rem; 
+}
+
+.sidebar-link { 
+  display: flex; 
+  align-items: center;
+  gap: .7rem;
+  padding: .75rem .8rem; 
+  color: #5b6478; 
+  text-decoration: none; 
+  border-radius: 9px;
+  font-weight: 500; 
+  margin-bottom: .15rem; 
+}
+
+.sidebar-link .material-symbols-outlined { 
+  font-size: 21px; 
+}
+
+.sidebar-link:hover { 
+  background: #f4f5fb; 
+  color: var(--tf-text); 
+}
+
+.sidebar-link.active { 
+  background: var(--tf-primary);
+  color: white; 
+}
+
+.coverage-box { 
+  padding: .9rem; 
+  border-radius: 10px; 
+  background: #f5f7fc; 
+  color: #697386;
+}
+
+.coverage-box .progress { 
+  height: 6px; 
+  background: #e2e6f3; 
+}
+
+.coverage-box .progress-bar { 
+  background: var(--tf-primary); 
+}
+
+.main-content { 
+  margin-left: 248px; 
+  padding: 2rem; 
+}
+
+.content-container { 
+  width: 100%; 
+  max-width: 1440px; 
+  margin: 0 auto; 
+}
+
+@media (max-width: 991.98px) {
+    .sidebar { width: 210px; }
+    .main-content { margin-left: 210px; padding: 1.4rem; }
+}
+@media (max-width: 767.98px) {
+    .topbar { height: 60px; }
+    .sidebar { position: static; width: auto; padding: .65rem .8rem; border-right: 0; border-bottom: 1px solid var(--tf-border); }
+    .sidebar-heading, .coverage-box { display: none; }
+    .sidebar nav { flex-direction: row !important; overflow-x: auto; }
+    .sidebar-link { flex: 0 0 auto; padding: .55rem .65rem; font-size: .8rem; }
+    .sidebar-link .material-symbols-outlined { font-size: 18px; }
+    .main-content { margin-left: 0; padding: 1.1rem .8rem; }
+    .team-label { display: none; }
+}
+@media print {
+    .topbar, .sidebar { display: none !important; }
+    .main-content { margin: 0; padding: 0; }
 }
